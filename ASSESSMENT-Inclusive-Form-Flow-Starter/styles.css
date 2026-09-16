@@ -1,11 +1,39 @@
 :root{
-    --color-text:#404040;
-    --color-surface:#fff;
-    --color-action:#8c1d40;
-    --color-accent:#ffc627;
-    --color-border:#747474;
-    --color-error:#b3261e;
-    --color-muted:#5c6670;
+  /* Primitive color tokens from Module 1 */
+--blue-200:#a9c6dd;
+--blue-400:#6d9cbf;
+--blue-600:#3d6b8f;
+--blue-800:#274a63;
+--blue-900:#182f3f;
+
+--gray-0:#ffffff;
+--gray-50:#f4f6f8;
+--gray-100:#e2e7ec;
+--gray-300:#b7c1cb;
+--gray-500:#7c8894;
+--gray-600:#66727e;
+--gray-700:#4a5561;
+--gray-900:#1c2126;
+
+/* Semantic color tokens */
+--color-text:var(--gray-700);
+--color-text-heading:var(--gray-900);
+--color-surface:var(--gray-50);
+--color-surface-raised:var(--gray-0);
+--color-code-surface:var(--gray-100);
+--color-border:var(--gray-300);
+--color-action:var(--blue-800);
+--color-on-action:var(--gray-0);
+--color-action-subtle:var(--gray-100);
+--color-link-visited:var(--blue-600);
+--color-focus:var(--blue-600);
+--color-muted:var(--gray-600);
+
+/* Form-specific semantic color extensions */
+--color-on-action-muted:var(--blue-200);
+--color-error:#b3261e;
+--color-error-surface:#fff1f0;
+--color-success:#2e6b3f;
 
     /* Primitive spacing tokens from Module 1 */
     --space-4:4px;
@@ -23,6 +51,7 @@
     --space-section-gap:var(--space-48);
     --space-form-gap:var(--space-12);
 
+    /* Existing form tokens */
     --radius:.5rem;
     --measure:68ch;
 }
@@ -42,11 +71,11 @@ body{
 .page-header{
     padding:clamp(2rem,6vw,5rem);
     background:var(--color-action);
-    color:#fff;
+    color:var(--color-on-action);
 }
 
 .eyebrow{
-    color:var(--color-accent);
+    color:var(--color-on-action-muted);
     font-weight:700;
 }
 
@@ -61,7 +90,8 @@ main{
     padding:var(--space-16);
 }
 
-section,form{
+section,
+form{
     margin-block:var(--space-32);
 }
 
@@ -78,7 +108,7 @@ form{
 
 fieldset{
     padding:var(--space-16);
-    border:1px solid #d0d0d0;
+    border:1px solid var(--color-border);
     border-radius:var(--radius);
 }
 
@@ -130,7 +160,7 @@ button{
     min-height:44px;
     padding:var(--space-12) var(--space-16);
     background:var(--color-action);
-    color:#fff;
+    color:var(--color-on-action);
     border:2px solid var(--color-action);
     border-radius:.25rem;
     font-weight:700;
@@ -138,14 +168,14 @@ button{
 
 /* Real keyboard focus state */
 :focus-visible{
-    outline:.2rem solid var(--color-accent);
+    outline:.2rem solid var(--color-focus);
     outline-offset:.2rem;
 }
 
 /* F5 simulated focus state.
    Matches the real :focus-visible treatment above. */
 .focus-simulated{
-    outline:.2rem solid var(--color-accent);
+    outline:.2rem solid var(--color-focus);
     outline-offset:.2rem;
 }
 
@@ -154,7 +184,7 @@ button{
 .field-error{
     padding:var(--space-16);
     border-left:.4rem solid var(--color-error);
-    background:#fff1f0;
+    background:var(--color-error-surface);
 }
 
 .field-error input{
@@ -163,16 +193,18 @@ button{
 
 .error-message{
     margin:0;
+    color:var(--color-error);
 }
 
 /* F5 valid state */
 .field-valid{
     padding:var(--space-16);
-    border-left:.4rem solid var(--color-action);
+    border-left:.4rem solid var(--color-success);
 }
 
 .success-message{
     margin:0;
+    color:var(--color-success);
     font-weight:700;
 }
 
