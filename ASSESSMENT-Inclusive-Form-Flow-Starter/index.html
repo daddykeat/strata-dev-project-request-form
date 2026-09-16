@@ -3,207 +3,334 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <title>Inclusive Form Flow</title><link rel="stylesheet" href="styles.css">
+        <title>Inclusive Form Flow</title>
+        <link rel="stylesheet" href="styles.css">
     </head>
+
     <body>
         <header class="page-header">
-    <p class="eyebrow">Project Request</p>
-    <h1>Request a Web Project Quote</h1>
-    <p class="lede">
-        This form is for prospective clients interested in hiring Strata Dev
-        for a web design or development project. It should take about 3–4
-        minutes to complete.
-    </p>
-</header>
+            <p class="eyebrow">Project Request</p>
+            <h1>Request a Web Project Quote</h1>
+            <p class="lede">
+                This form is for prospective clients interested in hiring Strata Dev
+                for a web design or development project. It should take about 3–4
+                minutes to complete.
+            </p>
+        </header>
 
-<main>
-    <section id="expectations">
-        <h2>F1 · Purpose and Expectations</h2>
+        <main>
+            <section id="expectations">
+                <h2>F1 · Purpose and Expectations</h2>
 
-        <p>
-            After you submit your request, I’ll review it and respond within
-            48 hours. We’ll then follow up by email or phone to discuss your
-            project and work out an accurate quote.
-        </p>
+                <p>
+                    After you submit your request, I’ll review it and respond within
+                    48 hours. We’ll then follow up by email or phone to discuss your
+                    project and work out an accurate quote.
+                </p>
 
-        <p>
-            Fields marked “required” must be completed. All other fields are
-            optional.
-        </p>
+                <p>
+                    Fields marked “required” must be completed. All other fields are
+                    optional.
+                </p>
 
-        <p>
-            This is a fictional, nonfunctional prototype created for testing
-            purposes. Please use fictional information only. No information
-            entered into this form is actually submitted or stored.
-        </p>
-    </section>
+                <p>
+                    This is a fictional, nonfunctional prototype created for testing
+                    purposes. Please use fictional information only. No information
+                    entered into this form is actually submitted or stored.
+                </p>
+            </section>
+
             <form action="" method="get">
-    <fieldset>
-        <legend>F3 · Contact information</legend>
+                <fieldset>
+                    <legend>F3 · Contact information</legend>
 
-        <div class="field">
-            <label for="name">Name (required)</label>
-            <input
-                id="name"
-                name="name"
-                type="text"
-                autocomplete="name"
-                required>
-        </div>
+                    <div class="field">
+                        <label for="name">Name (required)</label>
+                        <input
+                            id="name"
+                            name="name"
+                            type="text"
+                            autocomplete="name"
+                            required>
+                    </div>
 
-        <div class="field">
-            <label for="email">Email address (required)</label>
-            <input
-                id="email"
-                name="email"
-                type="email"
-                autocomplete="email"
-                inputmode="email"
-                required>
-        </div>
+                    <div class="field">
+                        <label for="email">Email address (required)</label>
+                        <input
+                            id="email"
+                            name="email"
+                            type="email"
+                            autocomplete="email"
+                            inputmode="email"
+                            required>
+                    </div>
 
-        <fieldset>
-            <legend>Preferred contact method (required)</legend>
+                    <fieldset>
+                        <legend>Preferred contact method (required)</legend>
 
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="contact_method"
-                    value="email"
-                    required>
-                Email
-            </label>
+                        <label class="choice">
+                            <input
+                                type="radio"
+                                name="contact_method"
+                                value="email"
+                                required>
+                            Email
+                        </label>
 
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="contact_method"
-                    value="phone">
-                Phone
-            </label>
+                        <label class="choice">
+                            <input
+                                type="radio"
+                                name="contact_method"
+                                value="phone">
+                            Phone
+                        </label>
 
-            <label class="choice">
-                <input
-                    type="radio"
-                    name="contact_method"
-                    value="text">
-                Text
-            </label>
-        </fieldset>
+                        <label class="choice">
+                            <input
+                                type="radio"
+                                name="contact_method"
+                                value="text">
+                            Text
+                        </label>
+                    </fieldset>
 
-        <div class="field">
-            <label for="phone">Phone number</label>
-            <p class="help" id="phone-help">
-                Provide a phone number if you prefer to be contacted by phone or text.
-            </p>
-            <input
-                id="phone"
-                name="phone"
-                type="tel"
-                autocomplete="tel"
-                inputmode="tel"
-                aria-describedby="phone-help">
-        </div>
-    </fieldset>
+                    <div class="field">
+                        <label for="phone">Phone number</label>
+                        <p class="help" id="phone-help">
+                            Provide a phone number if you prefer to be contacted by
+                            phone or text.
+                        </p>
+                        <input
+                            id="phone"
+                            name="phone"
+                            type="tel"
+                            autocomplete="tel"
+                            inputmode="tel"
+                            aria-describedby="phone-help">
+                    </div>
+                </fieldset>
 
-    <fieldset>
-        <legend>F3 · Project details</legend>
+                <fieldset>
+                    <legend>F3 · Project details</legend>
 
-        <div class="field">
-            <label for="project-type">Project type (required)</label>
-            <select
-                id="project-type"
-                name="project_type"
-                required>
-                <option value="">Select a project type</option>
-                <option value="web-design">Web design</option>
-                <option value="web-development">Web development</option>
-                <option value="redesign">Website redesign</option>
-                <option value="other">Other</option>
-            </select>
-        </div>
+                    <div class="field">
+                        <label for="project-type">Project type (required)</label>
+                        <select
+                            id="project-type"
+                            name="project_type"
+                            required>
+                            <option value="">Select a project type</option>
+                            <option value="web-design">Web design</option>
+                            <option value="web-development">Web development</option>
+                            <option value="redesign">Website redesign</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
 
-        <div class="field">
-            <label for="project-description">
-                Project description (required)
-            </label>
-            <p class="help" id="project-description-help">
-                Briefly describe your project, goals, and what you need.
-                Maximum 750 characters.
-            </p>
-            <textarea
-                id="project-description"
-                name="project_description"
-                maxlength="750"
-                aria-describedby="project-description-help"
-                required></textarea>
-        </div>
+                    <div class="field">
+                        <label for="project-description">
+                            Project description (required)
+                        </label>
+                        <p class="help" id="project-description-help">
+                            Briefly describe your project, goals, and what you need.
+                            Maximum 750 characters.
+                        </p>
+                        <textarea
+                            id="project-description"
+                            name="project_description"
+                            maxlength="750"
+                            aria-describedby="project-description-help"
+                            required></textarea>
+                    </div>
 
-        <div class="field">
-            <label for="budget">Budget range</label>
-            <p class="help" id="budget-help">
-                Select an approximate range. Exact financial information is not needed.
-            </p>
-            <select
-                id="budget"
-                name="budget"
-                aria-describedby="budget-help">
-                <option value="">Select a budget range</option>
-                <option value="under-1000">Under $1,000</option>
-                <option value="1000-2499">$1,000–$2,499</option>
-                <option value="2500-4999">$2,500–$4,999</option>
-                <option value="5000-plus">$5,000+</option>
-            </select>
-        </div>
+                    <div class="field">
+                        <label for="budget">Budget range</label>
+                        <p class="help" id="budget-help">
+                            Select an approximate range. Exact financial information
+                            is not needed.
+                        </p>
+                        <select
+                            id="budget"
+                            name="budget"
+                            aria-describedby="budget-help">
+                            <option value="">Select a budget range</option>
+                            <option value="under-1000">Under $1,000</option>
+                            <option value="1000-2499">$1,000–$2,499</option>
+                            <option value="2500-4999">$2,500–$4,999</option>
+                            <option value="5000-plus">$5,000+</option>
+                        </select>
+                    </div>
 
-        <div class="field">
-            <label for="target-date">
-                Target timeline / launch date
-            </label>
-            <p class="help" id="target-date-help">
-                Enter a target date if your project has a deadline or planned launch.
-            </p>
-            <input
-                id="target-date"
-                name="target_date"
-                type="date"
-                aria-describedby="target-date-help">
-        </div>
-    </fieldset>
+                    <div class="field">
+                        <label for="target-date">
+                            Target timeline / launch date
+                        </label>
+                        <p class="help" id="target-date-help">
+                            Enter a target date if your project has a deadline or
+                            planned launch.
+                        </p>
+                        <input
+                            id="target-date"
+                            name="target_date"
+                            type="date"
+                            aria-describedby="target-date-help">
+                    </div>
+                </fieldset>
 
-    <fieldset>
-        <legend>F3 · Contact consent</legend>
+                <fieldset>
+                    <legend>F3 · Contact consent</legend>
 
-        <label class="choice">
-            <input
-                type="checkbox"
-                name="contact_consent"
-                value="yes"
-                required>
-            I agree to be contacted about this project inquiry. (required)
-        </label>
-    </fieldset>
+                    <label class="choice">
+                        <input
+                            type="checkbox"
+                            name="contact_consent"
+                            value="yes"
+                            required>
+                        I agree to be contacted about this project inquiry. (required)
+                    </label>
+                </fieldset>
 
-    <button type="submit">Submit project request</button>
-</form>
-                <section id="states">
-                    <h2>F5 · State and Recovery Specimen</h2>
-                    <p>Document default, focus, required, valid, invalid, disabled, and a static server-returned error. Keep this section separate from the primary blank form when necessary to avoid misleading users.</p>
+                <button type="submit">Submit project request</button>
+            </form>
+
+            <section id="states">
+                <h2>F5 · State and Recovery Specimen</h2>
+
+                <p>
+                    The examples below document the different states of the email
+                    address field. These are static specimens for testing and
+                    documentation and are separate from the primary form above.
+                </p>
+
+                <!-- Default -->
+                <div class="field state-example">
+                    <h3>Default</h3>
+                    <label for="state-default-email">Email address</label>
+                    <input
+                        id="state-default-email"
+                        type="email"
+                        autocomplete="email"
+                        inputmode="email">
+                </div>
+
+                <!-- Focus -->
+                <div class="field state-example">
+                    <h3>Focus (simulated for documentation)</h3>
+                    <label for="state-focus-email">Email address</label>
+                    <input
+                        id="state-focus-email"
+                        class="focus-simulated"
+                        type="email"
+                        autocomplete="email"
+                        inputmode="email">
+                </div>
+
+                <!-- Required -->
+                <div class="field state-example">
+                    <h3>Required</h3>
+                    <label for="state-required-email">
+                        Email address (required)
+                    </label>
+                    <input
+                        id="state-required-email"
+                        type="email"
+                        autocomplete="email"
+                        inputmode="email"
+                        required>
+                </div>
+
+                <!-- Valid -->
+                <div class="field state-example field-valid">
+                    <h3>Valid</h3>
+                    <label for="state-valid-email">
+                        Email address (required)
+                    </label>
+                    <input
+                        id="state-valid-email"
+                        type="email"
+                        value="jordan@example.com"
+                        aria-describedby="valid-email-message"
+                        required>
+                    <p
+                        id="valid-email-message"
+                        class="success-message">
+                        ✓ Email address is valid.
+                    </p>
+                </div>
+
+                <!-- Invalid -->
+                <div class="field state-example field-error">
+                    <h3>Invalid</h3>
+                    <label for="state-invalid-email">
+                        Email address (required)
+                    </label>
+                    <input
+                        id="state-invalid-email"
+                        type="email"
+                        value="jordan.example.com"
+                        aria-invalid="true"
+                        aria-describedby="invalid-email-message"
+                        required>
+                    <p
+                        id="invalid-email-message"
+                        class="error-message">
+                        <strong>✕ Error:</strong>
+                        Enter an address in the format name@example.com.
+                    </p>
+                </div>
+
+                <!-- Disabled -->
+                <div class="field state-example">
+                    <h3>Disabled</h3>
+                    <label for="state-disabled-email">Email address</label>
+                    <input
+                        id="state-disabled-email"
+                        type="email"
+                        value="jordan@example.com"
+                        disabled>
+                </div>
+
+                <!-- Static server-returned error -->
+                <div class="state-example">
+                    <h3>Static server-returned error</h3>
+
                     <div class="error-summary">
-                        <h3>There is a problem with the fictional submission</h3>
-                        <p><a href="#error-example">Email address needs attention</a></p>
+                        <h4>There is a problem with the fictional submission</h4>
+                        <p>
+                            <a href="#server-error-email">
+                                Email address needs attention
+                            </a>
+                        </p>
                     </div>
+
                     <div class="field field-error">
-                        <label for="error-example">Email address</label>
-                        <input id="error-example" type="email" value="alex.example" aria-invalid="true" aria-describedby="error-message">
-                        <p id="error-message"><strong>Error:</strong> Enter an address in the format name@example.com.</p>
+                        <label for="server-error-email">
+                            Email address (required)
+                        </label>
+                        <input
+                            id="server-error-email"
+                            type="email"
+                            value="jordan.example.com"
+                            aria-invalid="true"
+                            aria-describedby="server-email-error"
+                            required>
+                        <p
+                            id="server-email-error"
+                            class="error-message">
+                            <strong>✕ Error:</strong>
+                            Enter an address in the format name@example.com.
+                        </p>
                     </div>
-                    <button type="button" disabled>Disabled example</button>
-                </section>
-                <section id="documentation">
-                    <h2>F2 and F6 · Planning and Evidence</h2>
-                    <p>Link your field inventory, state matrix, fictional test-data list, completed test record, and AI disclosure.</p>
-                </section>
-            </main>
-        </body>
-        </html>
+                </div>
+            </section>
+
+            <section id="documentation">
+                <h2>F2 and F6 · Planning and Evidence</h2>
+                <p>
+                    Link your field inventory, state matrix, fictional test-data
+                    list, completed test record, and AI disclosure.
+                </p>
+            </section>
+        </main>
+    </body>
+</html>
