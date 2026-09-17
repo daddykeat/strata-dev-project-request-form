@@ -82,7 +82,9 @@
     --measure:68ch;
 }
 
-*,*::before,*::after{
+*,
+*::before,
+*::after{
     box-sizing:border-box;
 }
 
@@ -239,8 +241,10 @@ button{
     outline-offset:.2rem;
 }
 
-/* F5 simulated focus state.
-   Matches the real :focus-visible treatment above. */
+/*
+ * F5 simulated focus state.
+ * Matches the real :focus-visible treatment above.
+ */
 .focus-simulated{
     outline:.2rem solid var(--color-focus);
     outline-offset:.2rem;
@@ -295,12 +299,4 @@ textarea:disabled{
 
 .state-example h3{
     margin-block:0 var(--space-8);
-}
-
-@media (min-width:48rem){
-    .paired-fields{
-        display:grid;
-        grid-template-columns:1fr 1fr;
-        gap:var(--space-16);
-    }
 }

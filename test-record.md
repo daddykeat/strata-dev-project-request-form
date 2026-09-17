@@ -93,3 +93,135 @@ Chrome blocked submission and displayed: “Please lengthen this text to 2 chara
 
 **Reasoning:**  
 The `minlength="2"` attribute enforces a two-character minimum natively. Chrome's built-in validation correctly prevented submission and communicated the exact constraint without requiring custom JavaScript.
+
+---
+
+## Test 7 — HTML validation
+
+**What I tested:**  
+Ran the complete `index.html` through the W3C Nu Html Checker.
+
+**What happened:**  
+The initial validation found one error: `action=""` was invalid because the `action` attribute must have a non-empty value when present. I removed the empty `action` attribute and kept `method="get"`, allowing the form to submit to the current document by default. I then ran the validator again, and it reported **“No errors or warnings to show.”**
+
+**Result:** Pass
+
+**Reasoning:**  
+Removing the empty `action` attribute corrected the invalid markup without changing the intended form behavior. The final `index.html` passes validation with no reported HTML errors or warnings.
+
+---
+
+## Test 8 — CSS validation
+
+**What I tested:**  
+Ran the complete `styles.css` through the Nu Html Checker using the “check as CSS” option.
+
+**What happened:**  
+The validator completed successfully and reported **“No errors or warnings to show.”**
+
+**Result:** Pass
+
+**Reasoning:**  
+The final stylesheet contains valid CSS syntax. Its custom properties, selectors, declarations, and values were accepted by the validator without errors or warnings.
+
+---
+
+## Test 9 — Keyboard navigation and operability
+
+**What I tested:**  
+Navigated the entire form using only Tab, Shift+Tab, Space, and Enter, without using a mouse. I checked visible focus on every interactive element, logical tab order, and whether the radio buttons and consent checkbox could be operated using only the keyboard.
+
+**What happened:**  
+All interactive elements received a visible focus ring and followed a logical top-to-bottom tab order. The radio buttons and consent checkbox could also be selected and changed successfully using the keyboard.
+
+**Result:** Pass
+
+**Reasoning:**  
+The `:focus-visible` rule provides a clear visual focus indicator, while the native HTML form controls provide keyboard operability without custom `tabindex` values or JavaScript.
+
+---
+
+## Test 10 — Accessible names and descriptions
+
+**What I tested:**  
+Inspected the contact-method radio buttons, consent checkbox, and phone input using Chrome DevTools’ Accessibility pane. I checked that each control’s computed accessible name matched its visible label and that the phone field’s `aria-describedby` help text was exposed as a description rather than becoming part of its accessible name.
+
+**What happened:**  
+All computed accessible names matched their visible labels. The phone field’s help text was correctly associated through `aria-describedby` and exposed as its accessible description.
+
+**Result:** Pass
+
+**Reasoning:**  
+Proper label associations give each control an accessible name that matches what sighted users see, while `aria-describedby` provides supplementary instructions separately as an accessible description. This preserves the distinction between a control’s identity and its supporting help text.
+
+---
+
+## Test 11 — Responsive viewport behavior
+
+**What I tested:**  
+Tested the completed page at 320px, 768px, and 1280px viewport widths. At each width, I checked for horizontal overflow, clipped or overlapping content, readable text reflow, and usable form controls.
+
+**What happened:**  
+At all three viewport widths, no horizontal scrollbar appeared. Text reflowed cleanly, form controls remained within the viewport, and no content was cut off or overlapped. The header and fluid typography also scaled appropriately across the tested widths. During testing, I found that the `.paired-fields` responsive rule was unused because no element in the final HTML used that class, so I removed the dead CSS rather than adding an unnecessary two-column layout.
+
+**Result:** Pass
+
+**Reasoning:**  
+The final single-column form remains usable and readable across phone, tablet, and desktop widths without requiring a layout breakpoint. Removing the unused `.paired-fields` rule keeps the stylesheet consistent with the actual interface and avoids retaining unnecessary responsive code.
+
+---
+
+## Test 12 — 200% browser zoom
+
+**What I tested:**  
+Zoomed the browser to 200% and reviewed the entire page, including the header, F3 form fields, and F5 state specimens. I checked for horizontal overflow, clipped content, and whether focus indicators and error/valid states remained clearly visible.
+
+**What happened:**  
+No horizontal scrollbar appeared. All text and form content remained legible and unclipped, and the focus, error, and valid state treatments remained clearly distinguishable at 200% zoom.
+
+**Result:** Pass
+
+**Reasoning:**  
+The layout uses flexible widths and `max-width` constraints, while typography and spacing rely primarily on relative and fluid sizing such as `rem` and `clamp()`. This allows the interface to scale predictably with browser zoom without causing content loss or horizontal overflow.
+
+---
+
+## Test 13 — Radio and checkbox tap targets
+
+**What I tested:**  
+Measured the effective tap target for the Preferred contact method radio buttons and the Contact consent checkbox. The visual control itself is 20px (`inline-size:1.25rem; block-size:1.25rem`), but each input and its text are wrapped in a shared `<label class="choice">`. I confirmed the effective interactive label area measured at least 44px and tested activation by clicking the label text rather than the small visual control.
+
+**What happened:**  
+The effective clickable/tappable area measured at least **44px**, and clicking the label text successfully selected the associated radio button or checkbox.
+
+**Result:** Pass
+
+**Reasoning:**  
+Wrapping each input and its text in a shared `<label>` expands the interactive target beyond the 20px visual indicator. The measured effective target is at least 44px, providing an appropriately sized touch target while allowing users to activate the control from either the indicator or its visible label.
+
+---
+
+## Test 14 — Complete form submission and query string
+
+**What I tested:**  
+Filled every field with valid fictional data, including the optional Phone number, Budget range, and Target timeline / launch date fields. I selected a preferred contact method, checked the consent checkbox, submitted the form, and inspected the resulting query string.
+
+**What happened:**  
+All nine field names appeared exactly once with the expected submitted values:
+
+- `name=Jordan+Doe`
+- `email=jordan%40example.com`
+- `contact_method=email`
+- `phone=444-555-9999`
+- `project_type=redesign`
+- `project_description=...`
+- `budget=1000-2499`
+- `target_date=2026-09-25`
+- `contact_consent=yes`
+
+No expected field was missing or duplicated.
+
+**Result:** Pass
+
+**Reasoning:**  
+The GET submission correctly serialized every named form control into the query string. This confirms that the `name` attributes and submitted values are wired correctly across the complete form.
