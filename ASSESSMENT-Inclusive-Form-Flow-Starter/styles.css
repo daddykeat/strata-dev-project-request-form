@@ -1,39 +1,39 @@
 :root{
-  /* Primitive color tokens from Module 1 */
---blue-200:#a9c6dd;
---blue-400:#6d9cbf;
---blue-600:#3d6b8f;
---blue-800:#274a63;
---blue-900:#182f3f;
+    /* Primitive color tokens from Module 1 */
+    --blue-200:#a9c6dd;
+    --blue-400:#6d9cbf;
+    --blue-600:#3d6b8f;
+    --blue-800:#274a63;
+    --blue-900:#182f3f;
 
---gray-0:#ffffff;
---gray-50:#f4f6f8;
---gray-100:#e2e7ec;
---gray-300:#b7c1cb;
---gray-500:#7c8894;
---gray-600:#66727e;
---gray-700:#4a5561;
---gray-900:#1c2126;
+    --gray-0:#ffffff;
+    --gray-50:#f4f6f8;
+    --gray-100:#e2e7ec;
+    --gray-300:#b7c1cb;
+    --gray-500:#7c8894;
+    --gray-600:#66727e;
+    --gray-700:#4a5561;
+    --gray-900:#1c2126;
 
-/* Semantic color tokens */
---color-text:var(--gray-700);
---color-text-heading:var(--gray-900);
---color-surface:var(--gray-50);
---color-surface-raised:var(--gray-0);
---color-code-surface:var(--gray-100);
---color-border:var(--gray-300);
---color-action:var(--blue-800);
---color-on-action:var(--gray-0);
---color-action-subtle:var(--gray-100);
---color-link-visited:var(--blue-600);
---color-focus:var(--blue-600);
---color-muted:var(--gray-600);
+    /* Semantic color tokens */
+    --color-text:var(--gray-700);
+    --color-text-heading:var(--gray-900);
+    --color-surface:var(--gray-50);
+    --color-surface-raised:var(--gray-0);
+    --color-code-surface:var(--gray-100);
+    --color-border:var(--gray-300);
+    --color-action:var(--blue-800);
+    --color-on-action:var(--gray-0);
+    --color-action-subtle:var(--gray-100);
+    --color-link-visited:var(--blue-600);
+    --color-focus:var(--blue-600);
+    --color-muted:var(--gray-600);
 
-/* Form-specific semantic color extensions */
---color-on-action-muted:var(--blue-200);
---color-error:#b3261e;
---color-error-surface:#fff1f0;
---color-success:#2e6b3f;
+    /* Form-specific semantic color extensions */
+    --color-on-action-muted:var(--blue-200);
+    --color-error:#b3261e;
+    --color-error-surface:#fff1f0;
+    --color-success:#2e6b3f;
 
     /* Primitive spacing tokens from Module 1 */
     --space-4:4px;
@@ -51,6 +51,32 @@
     --space-section-gap:var(--space-48);
     --space-form-gap:var(--space-12);
 
+    /* Font-family tokens from Module 1 */
+    --font-body:-apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-display:"Chakra Petch", -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-mono:ui-monospace, "SF Mono", "Cascadia Code", Consolas, monospace;
+
+    /* Primitive type scale from Module 1 */
+    --type-sm:clamp(0.875rem, 0.8rem + 0.375vw, 1rem);
+    --type-base:clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+    --type-lg:clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+    --type-xl:clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem);
+    --type-2xl:clamp(2.25rem, 1.7rem + 2.5vw, 3rem);
+
+    /* Semantic type roles from Module 1 */
+    --type-h1:var(--type-2xl);
+    --type-h2:var(--type-xl);
+    --type-h3:var(--type-lg);
+    --type-h4:var(--type-base);
+    --type-h5:var(--type-base);
+    --type-h6:var(--type-sm);
+    --type-body:var(--type-base);
+    --type-meta:var(--type-sm);
+
+    /* Line-height tokens from Module 1 */
+    --leading-heading:1.2;
+    --leading-body:1.6;
+
     /* Existing form tokens */
     --radius:.5rem;
     --measure:68ch;
@@ -64,13 +90,54 @@ body{
     margin:0;
     color:var(--color-text);
     background:var(--color-surface);
-    font-family:Arial,sans-serif;
-    line-height:1.6;
+    font-family:var(--font-body);
+    font-size:var(--type-body);
+    line-height:var(--leading-body);
+}
+
+/* Module 1 heading hierarchy */
+h1,
+h2,
+h3{
+    font-family:var(--font-display);
+    line-height:var(--leading-heading);
+    color:var(--color-text-heading);
+}
+
+h1{
+    font-size:var(--type-h1);
+    font-weight:700;
+}
+
+h2{
+    font-size:var(--type-h2);
+    font-weight:700;
+}
+
+h3{
+    font-size:var(--type-h3);
+    font-weight:500;
+}
+
+h4{
+    font-family:var(--font-body);
+    font-size:var(--type-h4);
+    font-weight:700;
+    line-height:var(--leading-heading);
+    color:var(--color-text-heading);
 }
 
 .page-header{
     padding:clamp(2rem,6vw,5rem);
     background:var(--color-action);
+    color:var(--color-on-action);
+}
+
+/*
+ * Heading color is normally --color-text-heading, but headings inside
+ * the dark page header need the on-action color for contrast.
+ */
+.page-header h1{
     color:var(--color-on-action);
 }
 
@@ -81,7 +148,7 @@ body{
 
 .lede{
     max-width:var(--measure);
-    font-size:1.25rem;
+    font-size:var(--type-lg);
 }
 
 main{
