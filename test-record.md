@@ -6,6 +6,26 @@ Results use three consistent values: **Pass**, **Fail**, and **Known limitation*
 
 ---
 
+## Fictional Test Data
+
+The following fictional values were used during form testing. They are test data only and do not represent a real client.
+
+| Field | Fictional test value |
+| --- | --- |
+| Name | Jordan Doe |
+| Email | jordan@example.com |
+| Preferred contact method | Email |
+| Phone number | 444-555-9999 |
+| Project type | Website redesign |
+| Project description | Redesign a fictional small-business website with an updated layout, clearer navigation, and responsive pages. |
+| Budget range | $1,000–$2,499 |
+| Target timeline / launch date | September 25, 2026 |
+| Consent to be contacted | Yes |
+
+Additional deliberately invalid values were used where necessary to test validation and recovery states, including a one-character name, an incorrectly formatted email address, a blank phone number with Phone/Text selected, and a past target date.
+
+---
+
 ## Test 1 — Conditional phone number requirement
 
 **What I tested:**  

@@ -5,145 +5,152 @@
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>Field Inventory</title>
         <style>
-        body{
-            font-family:Arial,sans-serif;
-            line-height:1.5;
-            max-width:80rem;
-            margin:auto;
-            padding:1rem;
-            color:#191919;
-        }
-        table{
-            width:100%;
-            border-collapse:collapse;
-        }
-        th,td{
-            padding:.6rem;
-            border:1px solid #999;
-            text-align:left;
-            vertical-align:top;
-        }
-        th{
-            background:#f1f1f1;
-        }
+            body{
+                font-family:Arial,sans-serif;
+                line-height:1.5;
+                max-width:80rem;
+                margin:auto;
+                padding:1rem;
+                color:#191919;
+            }
+
+            table{
+                width:100%;
+                border-collapse:collapse;
+            }
+
+            th,
+            td{
+                padding:.6rem;
+                border:1px solid #999;
+                text-align:left;
+                vertical-align:top;
+            }
+
+            th{
+                background:#f1f1f1;
+            }
         </style>
-        </head>
-        <body>
-            <h1>F2 · Task and Data Plan</h1>
-            <p>Duplicate rows as needed. Justify every collected value.</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Visible label / question</th>
-                        <th>Why necessary now?</th>
-                        <th>Required?</th>
-                        <th>Native control/type</th>
-                        <th>Submitted name/value</th>
-                        <th>Autocomplete/inputmode</th>
-                        <th>Constraint/instruction</th>
-                        <th>Sensitivity and minimization decision</th>
-                    </tr>
-                </thead>
-                <tbody>
-    <tr>
-        <td>Name</td>
-        <td>Needed to identify the person making the project inquiry and address them when responding.</td>
-        <td>Yes</td>
-        <td>&lt;input type="text"&gt;</td>
-        <td>name="name"</td>
-        <td>autocomplete="name"</td>
-        <td>Enter your name.</td>
-        <td>Personal information. Collect only the name needed to identify and respond to the client; no additional identity information is needed.</td>
-    </tr>
+    </head>
 
-    <tr>
-        <td>Email</td>
-        <td>Provides a way to respond to the inquiry when email is the preferred contact method and provides a reliable contact option for project communication.</td>
-        <td>Yes</td>
-        <td>&lt;input type="email"&gt;</td>
-        <td>name="email"</td>
-        <td>autocomplete="email" inputmode="email"</td>
-        <td>Enter a valid email address.</td>
-        <td>Personal contact information. Use only for responding to the project inquiry and related communication.</td>
-    </tr>
+    <body>
+        <h1>F2 · Task and Data Plan</h1>
+        <p>Each row documents and justifies a value collected by the project request form.</p>
 
-    <tr>
-        <td>Preferred contact method</td>
-        <td>Needed to know whether the client wants project communication by email, phone, or text.</td>
-        <td>Yes</td>
-        <td>&lt;fieldset&gt; with radio buttons</td>
-        <td>name="contact_method"; values="email", "phone", "text"</td>
-        <td>N/A</td>
-        <td>Choose one: Email, Phone, or Text.</td>
-        <td>Low sensitivity. Collect only the communication preference needed to contact the client appropriately.</td>
-    </tr>
+        <table>
+            <thead>
+                <tr>
+                    <th>Visible label / question</th>
+                    <th>Why necessary now?</th>
+                    <th>Required?</th>
+                    <th>Native control/type</th>
+                    <th>Submitted name/value</th>
+                    <th>Autocomplete/inputmode</th>
+                    <th>Constraint/instruction</th>
+                    <th>Sensitivity and minimization decision</th>
+                </tr>
+            </thead>
 
-    <tr>
-        <td>Phone number</td>
-        <td>Needed only when the client selects phone or text as the preferred contact method.</td>
-        <td>No</td>
-        <td>&lt;input type="tel"&gt;</td>
-        <td>name="phone"</td>
-        <td>autocomplete="tel" inputmode="tel"</td>
-        <td>Provide a phone number if you prefer to be contacted by phone or text.</td>
-        <td>Personal contact information. Keep optional and collect it only when needed for the client's selected contact method.</td>
-    </tr>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>Needed to identify the person making the project inquiry and address them when responding.</td>
+                    <td>Yes</td>
+                    <td>&lt;input type="text"&gt;</td>
+                    <td>name="name"</td>
+                    <td>autocomplete="name"</td>
+                    <td>minlength="2" — Enter at least 2 characters.</td>
+                    <td>Personal information. Collect only the name needed to identify and respond to the client; no additional identity information is needed.</td>
+                </tr>
 
-    <tr>
-        <td>Project type</td>
-        <td>Identifies the type of work being requested so the inquiry can be evaluated and the appropriate service can be discussed.</td>
-        <td>Yes</td>
-        <td>&lt;select&gt;</td>
-        <td>name="project_type"; value corresponds to selected project category</td>
-        <td>N/A</td>
-        <td>Select the project type that best matches your request.</td>
-        <td>Low sensitivity. Limit choices to service categories relevant to the work offered.</td>
-    </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>Provides a way to respond to the inquiry when email is the preferred contact method and provides a reliable contact option for project communication.</td>
+                    <td>Yes</td>
+                    <td>&lt;input type="email"&gt;</td>
+                    <td>name="email"</td>
+                    <td>autocomplete="email" inputmode="email"</td>
+                    <td>Enter a valid email address.</td>
+                    <td>Personal contact information. Use only for responding to the project inquiry and related communication.</td>
+                </tr>
 
-   <tr>
-    <td>Project description</td>
-    <td>Provides the project requirements and goals needed to understand the request and determine the appropriate next steps.</td>
-    <td>Yes</td>
-    <td>&lt;textarea&gt;</td>
-    <td>name="project_description"</td>
-    <td>N/A</td>
-    <td>maxlength="750" — Maximum 750 characters.</td>
-    <td>May contain information supplied by the client. Ask only for project-relevant details and discourage unnecessary personal or sensitive information.</td>
-</tr>
+                <tr>
+                    <td>Preferred contact method</td>
+                    <td>Needed to know whether the client wants project communication by email, phone, or text.</td>
+                    <td>Yes</td>
+                    <td>&lt;fieldset&gt; with radio buttons</td>
+                    <td>name="contact_method"; values="email", "phone", "text"</td>
+                    <td>N/A</td>
+                    <td>Choose one: Email, Phone, or Text.</td>
+                    <td>Low sensitivity. Collect only the communication preference needed to contact the client appropriately.</td>
+                </tr>
 
-    <tr>
-        <td>Budget range</td>
-        <td>Helps determine whether the requested project scope can be completed within the client's available budget.</td>
-        <td>No</td>
-        <td>&lt;select&gt;</td>
-        <td>name="budget"; value corresponds to selected budget range</td>
-        <td>N/A</td>
-        <td>Select an approximate range; exact financial information is not needed.</td>
-        <td>Financially sensitive. Keep optional and request only broad ranges rather than exact income, account, or payment information.</td>
-    </tr>
+                <tr>
+                    <td>Phone number</td>
+                    <td>Needed only when the client selects phone or text as the preferred contact method.</td>
+                    <td>No</td>
+                    <td>&lt;input type="tel"&gt;</td>
+                    <td>name="phone"</td>
+                    <td>autocomplete="tel" inputmode="tel"</td>
+                    <td>Provide a phone number if you prefer to be contacted by phone or text.</td>
+                    <td>Personal contact information. Keep optional and collect it only when needed for the client's selected contact method.</td>
+                </tr>
 
-    <tr>
-        <td>Target timeline / launch date</td>
-        <td>Needed to determine whether the requested project can be completed within the client's schedule.</td>
-        <td>No</td>
-        <td>&lt;input type="date"&gt;</td>
-        <td>name="target_date"</td>
-        <td>N/A</td>
-        <td>Enter a target date if the project has a deadline or planned launch.</td>
-        <td>Low sensitivity. Collect only the target project date and no unrelated scheduling information.</td>
-    </tr>
+                <tr>
+                    <td>Project type</td>
+                    <td>Identifies the type of work being requested so the inquiry can be evaluated and the appropriate service can be discussed.</td>
+                    <td>Yes</td>
+                    <td>&lt;select&gt;</td>
+                    <td>name="project_type"; value corresponds to selected project category</td>
+                    <td>N/A</td>
+                    <td>Select the project type that best matches your request.</td>
+                    <td>Low sensitivity. Limit choices to service categories relevant to the work offered.</td>
+                </tr>
 
-    <tr>
-        <td>Consent to be contacted</td>
-        <td>Confirms that the client agrees to be contacted using the information submitted in order to discuss this project inquiry.</td>
-        <td>Yes</td>
-        <td>&lt;input type="checkbox"&gt;</td>
-        <td>name="contact_consent" value="yes"</td>
-        <td>N/A</td>
-        <td>I agree to be contacted about this project inquiry.</td>
-        <td>Records communication consent. Limit the consent to this inquiry and related project communication rather than unrelated marketing.</td>
-    </tr>
-</tbody>
-            </table>
-        </body>
-        </html>
+                <tr>
+                    <td>Project description</td>
+                    <td>Provides the project requirements and goals needed to understand the request and determine the appropriate next steps.</td>
+                    <td>Yes</td>
+                    <td>&lt;textarea&gt;</td>
+                    <td>name="project_description"</td>
+                    <td>N/A</td>
+                    <td>maxlength="750" — Maximum 750 characters.</td>
+                    <td>May contain information supplied by the client. Ask only for project-relevant details and discourage unnecessary personal or sensitive information.</td>
+                </tr>
+
+                <tr>
+                    <td>Budget range</td>
+                    <td>Helps determine whether the requested project scope can be completed within the client's available budget.</td>
+                    <td>No</td>
+                    <td>&lt;select&gt;</td>
+                    <td>name="budget"; value corresponds to selected budget range</td>
+                    <td>N/A</td>
+                    <td>Select an approximate range; exact financial information is not needed.</td>
+                    <td>Financially sensitive. Keep optional and request only broad ranges rather than exact income, account, or payment information.</td>
+                </tr>
+
+                <tr>
+                    <td>Target timeline / launch date</td>
+                    <td>Needed to determine whether the requested project can be completed within the client's schedule.</td>
+                    <td>No</td>
+                    <td>&lt;input type="date"&gt;</td>
+                    <td>name="target_date"</td>
+                    <td>N/A</td>
+                    <td>Enter a target date if the project has a deadline or planned launch. No dynamic minimum date is enforced in this HTML/CSS-only prototype.</td>
+                    <td>Low sensitivity. Collect only the target project date and no unrelated scheduling information.</td>
+                </tr>
+
+                <tr>
+                    <td>Consent to be contacted</td>
+                    <td>Confirms that the client agrees to be contacted using the information submitted in order to discuss this project inquiry.</td>
+                    <td>Yes</td>
+                    <td>&lt;input type="checkbox"&gt;</td>
+                    <td>name="contact_consent" value="yes"</td>
+                    <td>N/A</td>
+                    <td>I agree to be contacted about this project inquiry.</td>
+                    <td>Records communication consent. Limit the consent to this inquiry and related project communication rather than unrelated marketing.</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
